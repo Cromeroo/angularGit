@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonaInterface } from '../../core/interface/persona.interface';
 import { TablaComponent } from '../../components/tabla/tabla.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-usuarios',
@@ -12,6 +13,7 @@ import { TablaComponent } from '../../components/tabla/tabla.component';
 export class UsuariosComponent implements OnInit {
   usuarios: PersonaInterface[] = [];
   columnas: string[] = [];
+  informacionUsuario: any;
 
   ngOnInit(): void {
     this.usuarios = [
@@ -58,5 +60,22 @@ export class UsuariosComponent implements OnInit {
     if (usuarios.length > 0) {
       this.columnas = Object.keys(usuarios[0]);
     }
+  }
+
+  recibirInformacion(usuario: PersonaInterface) {
+    this.informacionUsuario = usuario;
+    console.log('Se está imprimiendo:', this.informacionUsuario);
+    Swal.fire({
+      title: 'Información del usuario 321',
+      html: `
+      <div>
+        <p><strong>Nombre:</strong> ${usuario.nombre}</p>
+        <p><strong>Fecha:</strong> ${usuario.fechaNacimiento}</p>
+        <!-- Agrega aquí más campos del objeto PersonaInterface según tus necesidades -->
+      </div>
+    `,
+      icon: 'info',
+      confirmButtonText: 'Aceptar',
+    });
   }
 }

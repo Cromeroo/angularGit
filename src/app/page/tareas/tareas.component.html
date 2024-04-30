@@ -1,0 +1,11 @@
+<h4>Componente Padre</h4>
+
+<app-listareas
+  [misTareas]="misTareas"
+  [titulo]="'Lista de Tareas'"
+  (oninformation)="recibirInformacion($event)"
+></app-listareas>
+<button class="btn btn-info" (click)="recibirTarea()">
+  <i class="fa-fasolid fa-plus"></i>
+  Añadir info
+</button>

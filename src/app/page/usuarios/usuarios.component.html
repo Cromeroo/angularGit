@@ -1,5 +1,8 @@
+<span style="color: red">sku:{{ informacionUsuario?.nombre }} </span>
+
 <app-tabla
   [data]="usuarios"
   [titulo]="'Lista de usuarios'"
   [columnas]="columnas"
+  (oninformation)="recibirInformacion($event)"
 ></app-tabla>

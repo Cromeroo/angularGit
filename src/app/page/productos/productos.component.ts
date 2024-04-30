@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { TablaComponent } from '../../components/tabla/tabla.component';
 import { ProductoInterface } from '../../core/interface/producto.interface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-productos',
@@ -14,6 +15,7 @@ export class ProductosComponent implements OnInit {
   misProductos: ProductoInterface[] = [];
   titulo: string = 'Lista de Productos';
   columnas: string[] = [];
+  informacion: any;
 
   ngOnInit(): void {
     this.misProductos = [
@@ -44,5 +46,22 @@ export class ProductosComponent implements OnInit {
     if (productos.length > 0) {
       this.columnas = Object.keys(productos[0]);
     }
+  }
+  recibirInformacion(data: any) {
+    console.log('esta es la data', data);
+    this.informacion = data;
+
+    console.log('Componente Padre', this.informacion);
+    console.log('componente hijo:', data);
+    Swal.fire({
+      title: 'Información enviada',
+      html: `
+      <div>
+        <p><strong>SKU:</strong> ${data.sku}</p>
+      </div>
+    `,
+      icon: 'info',
+      confirmButtonText: 'Aceptar',
+    });
   }
 }

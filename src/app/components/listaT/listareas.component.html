@@ -1,0 +1,31 @@
+<h4 class="text-center">{{ titulo }}</h4>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Tarea</th>
+      <th scope="col">Prioridad</th>
+      <th scope="col">Completada</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (mitarea of misTareas; track $index) {
+    <tr>
+      <td>{{ mitarea.nombre }}</td>
+      <td>{{ mitarea.prioridad }}</td>
+      <td>{{ mitarea.completada ? "Sí" : "No" }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-info"
+          (click)="enviarInformacion(mitarea)"
+        >
+          Info
+        </button>
+      </td>
+    </tr>
+    }
+    <button type="button" class="btn btn-info">Añadir Tarea</button>
+  </tbody>
+</table>

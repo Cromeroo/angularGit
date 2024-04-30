@@ -1,5 +1,9 @@
+<h4>Compnente Padre</h4>
+<span style="color: red">sku:{{ informacion?.sku }} </span>
+
 <app-tabla
   [columnas]="columnas"
   [data]="misProductos"
   [titulo]="titulo"
+  (oninformation)="recibirInformacion($event)"
 ></app-tabla>

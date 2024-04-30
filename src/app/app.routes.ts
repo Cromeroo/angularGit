@@ -9,6 +9,7 @@ import { NombresComponent } from './page/nombres/nombres.component';
 import { PersonaComponent } from './page/persona/persona.component';
 import { UsuariosComponent } from './page/usuarios/usuarios.component';
 import { ProductosComponent } from './page/productos/productos.component';
+import { TareasComponent } from './page/tareas/tareas.component';
 
 export const routes: Routes = [
   {
@@ -59,6 +60,11 @@ export const routes: Routes = [
         path: PATH.CONTACTO,
         title: 'contacto',
         component: ContactoComponent,
+      },
+      {
+        path: PATH.TAREAS,
+        title: 'Lista de Tareas',
+        component: TareasComponent,
       },
     ],
   },
